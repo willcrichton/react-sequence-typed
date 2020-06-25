@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "rootDir": "src",
+    "sourceMap": true,
+    "strict": true,
+    "outDir": "dist",
+    "jsx": "react",
+    "esModuleInterop": true,
+    "lib": ["es2015"]
+  },
+  "include": [
+    "src/**/*.tsx",
+  ]
+}
