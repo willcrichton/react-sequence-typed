@@ -31,3 +31,24 @@ export class Sequence extends React.Component<SequenceProps, SequenceState> {
     </div>
   }
 }
+
+export class AccumulatingSequence extends Sequence {
+  state = { index: 0 }
+
+  next() {
+    this.setState({index: Math.min(this.state.index + 1, this.props.children.length - 1)})
+  }
+
+  prev() {
+    this.setState({index: Math.max(this.state.index - 1, 0)});
+  }
+
+  render() {
+    let children =
+      this.props.children
+          .slice(0, this.state.index+1)
+          .map((Child) =>
+            <Child prev={this.prev.bind(this)} next={this.next.bind(this)} />);
+    return <>{children}</>;
+  }
+}
